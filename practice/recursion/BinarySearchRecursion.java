@@ -1,4 +1,4 @@
-package recursion;
+package practice.recursion;
 
 public class BinarySearchRecursion {
     public int searchRecursion(int[] array, int start,int end, int target){

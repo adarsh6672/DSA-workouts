@@ -1,4 +1,4 @@
-package recursion;
+package practice.recursion;
 
 public class FactorialRecursion {
     public int findFactorial(int n){

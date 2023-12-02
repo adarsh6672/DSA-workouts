@@ -1,4 +1,4 @@
-package recursion;
+package practice.recursion;
 
 public class Fibonacci {
     public int findFibonacci(int num){

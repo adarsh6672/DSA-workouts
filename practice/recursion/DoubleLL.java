@@ -1,4 +1,4 @@
-package recursion;
+package practice.recursion;
 
 public class DoubleLL {
     class Node{
