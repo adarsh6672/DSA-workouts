@@ -11,5 +11,6 @@ public class RealQueue {
         q.add(4);
         q.remove();
         System.out.println( q);
+       
     }
 }
