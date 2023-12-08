@@ -1,5 +1,6 @@
 package practice.Queue;
 
+
 public class QueueLL {
     class Node{
         int data;
@@ -67,6 +68,7 @@ public class QueueLL {
         q.enQueue(8);
         q.enQueue(22);
         q.display();
+        
     }
 
 
