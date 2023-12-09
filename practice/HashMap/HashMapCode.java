@@ -53,6 +53,10 @@ public class HashMapCode {
                 Node node=buckets[bi].get(di);
                 node.value=value;
             }
+            double lambda = (double)n/N;
+            if(lambda > 2.0){
+                rehash();
+            }
 
         }
 
@@ -95,6 +99,27 @@ public class HashMapCode {
             }
         }
 
+        public boolean isEmpty(){
+            return n==0;
+        }
+
+        public void rehash(){
+            LinkedList<Node> oldBucket[]= buckets;
+            buckets = new LinkedList[N*2];
+
+            for(int i=0;i<N*2;i++){
+                buckets[i]=new LinkedList<>();
+            }
+
+            for(int i=0;i<oldBucket.length;i++){
+                LinkedList<Node> ls=buckets[i];
+                for(int j=0;j<ls.size();j++){
+                     Node node=ls.get(j);
+                     put(node.key, node.value);
+                }
+            }
+        }
+
     }
 
     public static void main(String[] args) {
@@ -102,12 +127,15 @@ public class HashMapCode {
         hm.put("adarsh", 3);
         hm.put("athul", 332);
         hm.put("pooja" ,67);
+        hm.put("athul", 78);
         System.out.println( hm.get("adarsh"));
         hm.remove("adarsh");
+        
         System.out.println( hm.get("adarsh"));
+        hm.put("adarsh", 5);
         ArrayList<String> keys=hm.keySet();
         for(int i=0;i<keys.size();i++){
-            System.out.println(keys.get(i)+"   " + hm.get(keys.get(i)));
+            System.out.println(keys.get(i)+"            " + hm.get(keys.get(i)));
         }
         
 
