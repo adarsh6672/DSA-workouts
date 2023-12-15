@@ -53,11 +53,37 @@ public class BinarySearchTree {
         return false;
     }
 
+    public boolean search(int data,Node root){
+        if(root==null){
+            return false;
+        }else if(data<root.data){
+            return search(data, root.left);
+        }else if(data>root.data){
+            return search(data, root.right);
+        }else{
+            return true;
+        }
+    }
+
+    public void inOrder(Node node){
+        if(node == null){
+            return;
+        }
+
+        inOrder(node.left);
+        System.out.print(node.data+"   ");
+        inOrder(node.right);
+    }
+
     public static void main(String[] args) {
         BinarySearchTree bst=new BinarySearchTree();
         bst.insert(10);
         bst.insert(5);
         bst.insert(22); 
+        bst.insert(88);
         System.out.println(bst.contains(5));
+        System.out.println(bst.search(10, bst.root));
+        bst.inOrder(bst.root);
+        
     }
 }
