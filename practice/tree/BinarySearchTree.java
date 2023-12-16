@@ -167,6 +167,25 @@ public class BinarySearchTree {
         preOrder(node.right);
     }
 
+    public int findClosest(int target,Node root){
+        Node closest=root;
+
+        while(root!=null){
+            if(Math.abs(root.data-target)<Math.abs(closest.data-target)){
+                closest=root;
+            }
+
+            if(target<root.data){
+                root=root.left;
+            }else if(target>root.data){
+                root=root.right;
+            }else{
+                return root.data;
+            }
+        }
+        return closest.data;
+    }
+
     public static void main(String[] args) {
         BinarySearchTree bst=new BinarySearchTree();
         bst.insert(10);
@@ -191,5 +210,8 @@ public class BinarySearchTree {
         bst.postOrder(bst.root);
         System.out.println();
         bst.preOrder(bst.root);
+        System.out.println();
+        int res=bst.findClosest(27,bst.root);
+        System.out.println(res);
     }
 }
