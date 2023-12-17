@@ -86,18 +86,37 @@ public class BinaryTree {
 
         }
     }
+    public boolean isBST(){
+        Node temp=root;
+        return helperIsBST(temp,Integer.MIN_VALUE,Integer.MAX_VALUE);
+    }
+
+    private boolean helperIsBST(Node node,int minValue, int maxValue){
+        if(node==null){
+            return true;
+        }
+        if(node.data<=minValue || node.data>=maxValue){
+            return false;
+        }
+
+        return helperIsBST(node.left, minValue, node.data) && helperIsBST(node.right, node.data, maxValue);
+    }
+    
 
     public static void main(String[] args) {
         BinaryTree bt=new BinaryTree();
         bt.insert(10);
+        bt.insert(5);
+        bt.insert(16);
+        bt.insert(1);
+        bt.insert(6);
         bt.insert(11);
-        bt.insert(12);
-        bt.insert(13);
-        bt.insert(14);
-        bt.insert(15);
+        bt.insert(17);
+        
         bt.inorder(bt.root);
         System.out.println();
         bt.levelOrder(bt.root);
+        System.out.println(bt.isBST());
     }
 }
 
