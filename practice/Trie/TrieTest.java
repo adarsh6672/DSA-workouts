@@ -54,7 +54,9 @@ public class TrieTest {
         TrieTest trie=new TrieTest();
         trie.insert("adarsh");
         trie.insert("adiv"); 
-        System.out.println(trie.search("adarsh"));
+        trie.insert("abu");
+        trie.insert("ad");
+        System.out.println(trie.search("ab"));
     }
 
 }
