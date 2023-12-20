@@ -81,7 +81,6 @@ public class MaxHeap {
 
     public List<Integer> heapSort() throws Exception{
         List<Integer> res=new ArrayList<>();
-        int i=0;
         while(!heap.isEmpty()){
             int dig=remove();
             res.add(dig);
