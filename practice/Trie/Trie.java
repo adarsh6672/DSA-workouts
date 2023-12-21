@@ -61,7 +61,7 @@ public class Trie {
     public static void main(String[] args) {
         Trie trie=new Trie();
         trie.insert("veer");
-        trie.insert("kili");
+        trie.insert("kil");
         trie.insertRec("adarsh");
         
         System.out.println(trie.search("adarsh"));

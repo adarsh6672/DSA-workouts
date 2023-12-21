@@ -19,7 +19,7 @@ public class TrieHash {
         Node temp=root;
         for(int i=0;i<word.length();i++){
             char x=word.charAt(i);
-            if(temp.children.get(x)==null){
+            if(!temp.children.containsKey(x)){
                 temp.children.put(x, new Node());
             }
             temp=temp.children.get(word.charAt(i));
@@ -32,7 +32,7 @@ public class TrieHash {
         Node temp=root;
         for(int i=0;i<word.length();i++){
             char x=word.charAt(i);
-            if(temp.children.get(x)==null){
+            if(!temp.children.containsKey(x)){
                 return false;
             }
             if(i==word.length()-1 && temp.children.get(x).eow==false){
@@ -47,8 +47,9 @@ public class TrieHash {
         TrieHash tr=new TrieHash();
         tr.insert("love");
         tr.insert("is");
+        tr.insert("is");
         tr.insert("lost");
         
-        System.out.println(tr.search("love"));
+        System.out.println(tr.search("i"));
     }
 }
