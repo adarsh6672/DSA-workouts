@@ -204,7 +204,7 @@ public class BinarySearchTree {
         bst.inOrder(bst.root);
         System.out.println();
         
-        System.out.println(bst.root.data);
+        
         bst.inOrder(bst.root);
         System.out.println();
         bst.postOrder(bst.root);

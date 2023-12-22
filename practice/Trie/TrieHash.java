@@ -45,11 +45,12 @@ public class TrieHash {
 
     public static void main(String[] args) {
         TrieHash tr=new TrieHash();
-        tr.insert("love");
+        tr.insert("love..");
         tr.insert("is");
         tr.insert("is");
         tr.insert("lost");
         
         System.out.println(tr.search("i"));
+        System.out.println(tr.search("love.."));
     }
 }

@@ -59,10 +59,14 @@ public class MinHeap {
         return heap.get(0);
     }
 
-    public void remove(){
+    public int remove(){
         Collections.swap(heap, 0, heap.size()-1);
-        heap.remove(heap.size()-1);
-        shiftDown(0);
+        int temp=heap.remove(heap.size()-1);
+        if(!heap.isEmpty()){
+            shiftDown(0);
+        }
+        
+        return temp;
     }
     public void insert(int value){
         heap.add(value);
@@ -84,19 +88,28 @@ public class MinHeap {
             System.out.print(heap.get(i)+"   ");
         }
     }
+    public List<Integer> heapSort(){
+        List<Integer>res=new ArrayList<>();
+        while(!heap.isEmpty()){
+            int n=remove();
+            res.add(n);
+        }
+
+        return res;
+    }
 
 
     public static void main(String[] args) {
         List<Integer> al=new ArrayList<>(Arrays.asList(6,2,8));
         MinHeap heap=new MinHeap(al);
-        heap.display();
+        
         heap.insert(1);
         heap.insert(5);
         heap.insert(15);
-        System.out.println();
-        heap.display();
-        heap.remove();
-        System.out.println();
+        
         heap.display(); 
+        System.out.println();
+        
+        System.out.println(heap.heapSort());
     }
 }

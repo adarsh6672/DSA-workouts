@@ -57,6 +57,8 @@ public class TrieTest {
         trie.insert("abu");
         trie.insert("ad");
         System.out.println(trie.search("ab"));
+        System.out.println(trie.search("adarsh"));
+        System.out.println(trie.search("ada"));
     }
 
 }

@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
+import java.util.Stack;
 
 public class Graph {
     
@@ -84,8 +85,9 @@ public class Graph {
         }
         return count;
     }
-    public void BFS(){
+    public void BFS(int n){
         Set<Integer>visited=new HashSet<>();
+        BFS(n,visited);
         for(int key:graph.keySet()){
             if(!visited.contains(key)){
                 BFS(key,visited);
@@ -115,20 +117,50 @@ public class Graph {
         }
     }
 
+    public void DFS(int n){
+        Set<Integer>visited=new HashSet<>();
+        DFS(n,visited);
+        for(int key:graph.keySet()){
+            if(!visited.contains(key)){
+                DFS(key,visited);
+            }
+        }
+    }
+    public void DFS(int root,Set<Integer>visited){
+        Stack<Integer>stack=new Stack<>();
+        stack.push(root);
+        visited.add(root);
+        while(!stack.isEmpty()){
+            int n=stack.pop();
+            System.out.print(n+"  ");
+            Iterator<Integer>i=graph.get(n).iterator();
+            while(i.hasNext()){
+                int s=i.next();
+                if(!visited.contains(s)){
+                    stack.push(s);
+                    visited.add(s);
+                }
+            }
+        }
+    }
+
 
     public static void main(String[] args) {
         Graph graph=new Graph();
-        graph.addVertex(4);
-        graph.addVertex(6);
-        graph.createEdge(9, 67, false);
-        graph.createEdge(9, 67, false);
-        graph.createEdge(9, 4, true);
-        graph.createEdge(6, 68 , true);
+        graph.addVertex(0);
+        graph.addVertex(1);
+        graph.createEdge(0, 1, true);
+        graph.createEdge(1, 2, true);
+        graph.createEdge(0, 2, true);
+        graph.createEdge(1, 3 , true);
+        graph.createEdge(3, 4, true);
+        graph.createEdge(2, 4, true);
         
         graph.display();
-        
         System.out.println("=====================================");
-        graph.BFS();
+        graph.DFS(0);
+        System.out.println("=====================================");
+        graph.BFS(0);
         
         
     }

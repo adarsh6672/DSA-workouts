@@ -102,7 +102,7 @@ public class MaxHeap {
         ArrayList <Integer> al=new ArrayList<>(Arrays.asList(4,1,3,2,16,9,10,14,8,7));
         MaxHeap mh=new MaxHeap(al);
         mh.remove();
-        mh.print();
+        // mh.print();
         System.out.println(mh.heapSort());
     }
 
